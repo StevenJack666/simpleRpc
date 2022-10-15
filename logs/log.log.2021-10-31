@@ -1,0 +1,20 @@
+2021-10-31 22:56:45 ERROR CuratorFrameworkImpl:557 - Ensure path threw exception
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /netty-rpc
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1102)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1130)
+	at org.apache.curator.utils.ZKPaths.mkdirs(ZKPaths.java:274)
+	at org.apache.curator.framework.imps.NamespaceImpl$1.call(NamespaceImpl.java:90)
+	at org.apache.curator.RetryLoop.callWithRetry(RetryLoop.java:109)
+	at org.apache.curator.framework.imps.NamespaceImpl.fixForNamespace(NamespaceImpl.java:83)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.fixForNamespace(CuratorFrameworkImpl.java:594)
+	at org.apache.curator.framework.imps.GetChildrenBuilderImpl.forPath(GetChildrenBuilderImpl.java:198)
+	at org.apache.curator.framework.imps.GetChildrenBuilderImpl.forPath(GetChildrenBuilderImpl.java:40)
+	at com.netty.rpc.zookeeper.CuratorClient.getChildren(CuratorClient.java:67)
+	at com.netty.rpc.client.discovery.ServiceDiscovery.getServiceAndUpdateServer(ServiceDiscovery.java:65)
+	at com.netty.rpc.client.discovery.ServiceDiscovery.discoveryService(ServiceDiscovery.java:36)
+	at com.netty.rpc.client.discovery.ServiceDiscovery.<init>(ServiceDiscovery.java:29)
+	at com.netty.rpc.client.RpcClient.<init>(RpcClient.java:35)
+	at com.app.test.client.RpcAsyncTest.main(RpcAsyncTest.java:15)
+2021-10-31 23:22:51 ERROR ServiceDiscovery:78 - Get node exception: KeeperErrorCode = ConnectionLoss for /netty-rpc/registry
